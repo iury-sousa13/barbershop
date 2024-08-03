@@ -2,12 +2,16 @@ lockfileVersion: 5.4
 
 specifiers:
   '@prisma/client': 5.17.0
+  '@radix-ui/react-slot': ^1.1.0
   '@types/node': 22.1.0
   '@types/react': 18.3.3
   '@types/react-dom': 18.3.0
   autoprefixer: 10.4.20
+  class-variance-authority: ^0.7.0
+  clsx: ^2.1.1
   eslint: 8.57.0
   eslint-config-next: 14.2.5
+  lucide-react: ^0.424.0
   next: 14.2.5
   postcss: 8.4.40
   prettier: ^3.3.3
@@ -15,23 +19,31 @@ specifiers:
   prisma: ^5.17.0
   react: 18.3.1
   react-dom: 18.3.1
+  tailwind-merge: ^2.4.0
   tailwindcss: 3.4.7
+  tailwindcss-animate: ^1.0.7
   ts-node: ^10.9.2
   typescript: 5.5.4
 
 dependencies:
   '@prisma/client': 5.17.0_prisma@5.17.0
+  '@radix-ui/react-slot': 1.1.0_3vdbhqr2ncalcx7opnshezpx3q
   '@types/node': 22.1.0
   '@types/react': 18.3.3
   '@types/react-dom': 18.3.0
   autoprefixer: 10.4.20_postcss@8.4.40
+  class-variance-authority: 0.7.0
+  clsx: 2.1.1
   eslint: 8.57.0
   eslint-config-next: 14.2.5_qusgslmwnowdaqieuropes6b5q
+  lucide-react: 0.424.0_react@18.3.1
   next: 14.2.5_nnrd3gsncyragczmpvfhocinkq
   postcss: 8.4.40
   react: 18.3.1
   react-dom: 18.3.1_react@18.3.1
+  tailwind-merge: 2.4.0
   tailwindcss: 3.4.7_ts-node@10.9.2
+  tailwindcss-animate: 1.0.7_tailwindcss@3.4.7
   typescript: 5.5.4
 
 devDependencies:
@@ -316,6 +328,33 @@ packages:
     resolution: {integrity: sha512-UlDgbRozCP1rfJ5Tlkf3Cnftb6srGrEQ4Nm3og+1Se2gWmCZ0hmPIi+tQikGDUVLlvOWx3Gyi9LzgRP+HTXV9w==}
     dependencies:
       '@prisma/debug': 5.17.0
+
+  /@radix-ui/react-compose-refs/1.1.0_3vdbhqr2ncalcx7opnshezpx3q:
+    resolution: {integrity: sha512-b4inOtiaOnYf9KWyO3jAeeCG6FeyfY6ldiEPanbUjWd+xIk5wZeHa8yVwmrJ2vderhu/BQvzCrJI0lHd+wIiqw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@types/react': 18.3.3
+      react: 18.3.1
+    dev: false
+
+  /@radix-ui/react-slot/1.1.0_3vdbhqr2ncalcx7opnshezpx3q:
+    resolution: {integrity: sha512-FUCf5XMfmW4dtYl69pdS4DbxKy8nj4M7SafBgPllysxmdachynNflAdp/gCsnYWNDnge6tI9onzMp5ARYc1KNw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@radix-ui/react-compose-refs': 1.1.0_3vdbhqr2ncalcx7opnshezpx3q
+      '@types/react': 18.3.3
+      react: 18.3.1
+    dev: false
 
   /@rushstack/eslint-patch/1.10.4:
     resolution: {integrity: sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==}
@@ -744,8 +783,24 @@ packages:
       fsevents: 2.3.3
     dev: false
 
+  /class-variance-authority/0.7.0:
+    resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
+    dependencies:
+      clsx: 2.0.0
+    dev: false
+
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clsx/2.0.0:
+    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
+    engines: {node: '>=6'}
+    dev: false
+
+  /clsx/2.1.1:
+    resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/2.0.1:
@@ -1998,6 +2053,14 @@ packages:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
     dev: false
 
+  /lucide-react/0.424.0_react@18.3.1:
+    resolution: {integrity: sha512-x2Nj2aytk1iOyHqt4hKenfVlySq0rYxNeEf8hE0o+Yh0iE36Rqz0rkngVdv2uQtjZ70LAE73eeplhhptYt9x4Q==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc
+    dependencies:
+      react: 18.3.1
+    dev: false
+
   /make-error/1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
 
@@ -2822,6 +2885,18 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+    dev: false
+
+  /tailwind-merge/2.4.0:
+    resolution: {integrity: sha512-49AwoOQNKdqKPd9CViyH5wJoSKsCDjUlzL8DxuGp3P1FsGY36NJDAa18jLZcaHAUUuTj+JB8IAo8zWgBNvBF7A==}
+    dev: false
+
+  /tailwindcss-animate/1.0.7_tailwindcss@3.4.7:
+    resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      tailwindcss: 3.4.7_ts-node@10.9.2
     dev: false
 
   /tailwindcss/3.4.7_ts-node@10.9.2:
