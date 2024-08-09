@@ -1,21 +1,61 @@
-import { Avatar } from '@radix-ui/react-avatar';
-import { SheetClose, SheetContent, SheetHeader, SheetTitle } from './ui/sheet';
-import { AvatarImage } from './ui/avatar';
-import { Button } from './ui/button';
-import Link from 'next/link';
-import { CalendarIcon, HomeIcon, LogOutIcon } from 'lucide-react';
-import { quickSearchOptions } from '../_constants/search';
+import { CalendarIcon, HomeIcon, LogInIcon, LogOutIcon } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { quickSearchOptions } from '../_constants/search';
+import { Button } from './ui/button';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog';
+import { SheetClose, SheetContent, SheetHeader, SheetTitle } from './ui/sheet';
 
 export function Sidebar() {
+  // const { data } = useSession();
+  // const handleLoginWithGoogleClick = () => signIn('google');
+  // const handleLogoutClick = () => signOut();
+
   return (
     <SheetContent className="overflow-y-auto">
       <SheetHeader>
         <SheetTitle className="text-left">Menu</SheetTitle>
       </SheetHeader>
 
-      <div className="flex items-center gap-3 border-b border-solid py-5">
-        <Avatar className="h-12 w-12">
+      <div className="flex items-center justify-between gap-3 border-b border-solid py-5">
+        <h2 className="font-bold">Olá, faça seu login!</h2>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button size="icon">
+              <LogInIcon />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="w-[90%]">
+            <DialogHeader>
+              <DialogTitle>Faça login na plataforma</DialogTitle>
+              <DialogDescription>
+                Conecte-se usando sua conta do Google.
+              </DialogDescription>
+            </DialogHeader>
+
+            <Button
+              variant="outline"
+              className="gap-1 font-bold"
+              // onClick={handleLoginWithGoogleClick}
+            >
+              <Image
+                alt="Fazer login com o Google"
+                src="/google.svg"
+                width={18}
+                height={18}
+              />
+              Google
+            </Button>
+          </DialogContent>
+        </Dialog>
+        {/* <Avatar className="h-12 w-12">
           <AvatarImage
             className="rounded-full border-2 border-solid border-primary"
             src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1760&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -25,7 +65,7 @@ export function Sidebar() {
         <div>
           <p className="font-bold">Felipe Rocha</p>
           <p className="text-xs">felipe@fullstackclub.io</p>
-        </div>
+        </div> */}
       </div>
 
       <div className="flex flex-col gap-2 border-b border-solid py-5">
