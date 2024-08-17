@@ -1,9 +1,19 @@
 'use client';
 
 import { Barbershop, BarbershopService, Booking } from '@prisma/client';
-import { Card, CardContent } from './ui/card';
+import { format, set } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
+import { createBooking } from '../_actions/create-booking';
+import { getBookings } from '../_actions/get-booking';
+import SignInDialog from './sign-in-dialog';
 import { Button } from './ui/button';
+import { Calendar } from './ui/calendar';
+import { Card, CardContent } from './ui/card';
+import { Dialog, DialogContent } from './ui/dialog';
 import {
   Sheet,
   SheetContent,
@@ -11,16 +21,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from './ui/sheet';
-import { Calendar } from './ui/calendar';
-import { ptBR } from 'date-fns/locale';
-import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { format, set } from 'date-fns';
-import { createBooking } from '../_actions/create-booking';
-import { toast } from 'sonner';
-import { Dialog, DialogContent } from './ui/dialog';
-import SignInDialog from './sign-in-dialog';
-import { getBookings } from '../_actions/get-booking';
 
 interface ServiceItemProps {
   service: BarbershopService;
