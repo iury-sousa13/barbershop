@@ -7,12 +7,15 @@ import { Button } from './_components/ui/button';
 import { quickSearchOptions } from './_constants/search';
 import { db } from './_lib/prisma';
 import Link from 'next/link';
+import { getConfirmedBookings } from './_actions/get-confirmed-bookings';
 
 export default async function Home() {
   const barbershops = await db.barbershop.findMany({});
   const popularBarbershops = await db.barbershop.findMany({
     orderBy: { name: 'desc' },
   });
+
+  const confirmedBookings = await getConfirmedBookings();
 
   return (
     <div>
@@ -57,7 +60,22 @@ export default async function Home() {
           />
         </div>
 
-        <BookingItem />
+        {confirmedBookings.length > 0 && (
+          <>
+            <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+              Agendamentos
+            </h2>
+
+            <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
+              {confirmedBookings.map((booking) => (
+                <BookingItem
+                  key={booking.id}
+                  booking={JSON.parse(JSON.stringify(booking))}
+                />
+              ))}
+            </div>
+          </>
+        )}
 
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
